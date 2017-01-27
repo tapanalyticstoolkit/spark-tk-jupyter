@@ -22,7 +22,8 @@ RUN pip2.7 install \
     tabulate==0.7.5 \
     snakebite==2.11.0 \
     jupyter-spark \
-    futures
+    futures \
+    awscli
 
 
 # Copy misc modules for TAP to python2.7 site-packages
