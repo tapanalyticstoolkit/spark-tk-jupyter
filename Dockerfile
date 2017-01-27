@@ -31,7 +31,7 @@ COPY misc-modules/* $CONDA_DIR/lib/python2.7/site-packages/
 
 
 # Install Tini
-ARG TINI_VERSION="v0.13.2"
+ENV TINI_VERSION="v0.13.2"
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/
 RUN chmod +x /usr/bin/tini
 
@@ -42,7 +42,7 @@ ENV SPARK_HOME "/usr/local/spark-$APACHE_SPARK_VERSION-bin-hadoop2.6"
 ENV PATH "$SPARK_HOME/bin:$PATH"
 ENV SPARK_CONF_DIR "/etc/spark/conf"
 ENV HADOOP_CONF_DIR "/etc/hadoop/conf"
-ENV YARN_CONF_DIR $HADOOP_CONF_DIR
+ENV YARN_CONF_DIR "$HADOOP_CONF_DIR"
 ENV PYSPARK_PYTHON "python2.7"
 ENV PYTHONPATH "/usr/local/spark-$APACHE_SPARK_VERSION-bin-hadoop2.6/python:/usr/local/spark-$APACHE_SPARK_VERSION-bin-hadoop2.6/lib/py4j-0.9-src.zip:$PYTHONPATH"
 ADD http://archive.apache.org/dist/spark/spark-$APACHE_SPARK_VERSION/spark-$APACHE_SPARK_VERSION-bin-hadoop2.6.tgz /usr/local
@@ -58,14 +58,29 @@ RUN ls $SPARK_HOME/lib/* > $SPARK_CONF_DIR/classpath.txt && \
     chown -R $NB_USER:users /user/spark
 
 
-# Install Spark-TK
-ENV SPARKTK_VERSION "0.7.4.post3442"
-ENV SPARKTK_HOME "/usr/local/sparktk-core-$SPARKTK_VERSION"
-ADD https://github.com/trustedanalytics/spark-tk/releases/download/v0.7.4/sparktk-core-$SPARKTK_VERSION.zip /usr/local
-RUN unzip /usr/local/sparktk-core-$SPARKTK_VERSION.zip -d /usr/local && \
-    rm -rf /usr/local/sparktk-core-$SPARKTK_VERSION.zip && \
+# Set required paths for spark-tk/daal-tk packages
+ENV SPARKTK_HOME "/usr/local/sparktk-core"
+ENV DAALTK_HOME "/usr/local/daaltk-core"
+ENV LD_LIBRARY_PATH "/usr/local/daal-2016.2.181:$LD_LIBRARY_PATH"
+ARG TKLIBS_INSTALLER_URL="https://github.com/trustedanalytics/daal-tk/releases/download/v0.7.4/daal-install"
+ARG TKLIBS_INSTALLER="daal-install"
+
+
+# Install spark-tk/daal-tk packages
+ADD $TKLIBS_INSTALLER_URL /usr/local/
+RUN cd /usr/local && \ 
+    chmod +x $TKLIBS_INSTALLER  && \
     sync && \
-    cd $SPARKTK_HOME && \
+    ./$TKLIBS_INSTALLER && \
+    ln -s /usr/local/sparktk-core-* $SPARKTK_HOME && \
+    ln -s /usr/local/daaltk-core-* $DAALTK_HOME && \
+    rm -rf /usr/local/$TKLIBS_INSTALLER /usr/local/*.tar.gz
+
+
+# Install spark-tk package mainly to fix the graphframes install
+RUN cd $SPARKTK_HOME && \
+    chmod +x install.sh && \
+    sync && \
     ./install.sh
 
 
