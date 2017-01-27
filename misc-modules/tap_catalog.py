@@ -64,8 +64,8 @@ class DataCatalog(object):
 
     >>> from tap_catalog import DataCatalog
     >>> catalog = DataCatalog()
-    >>> catalog.add("/user/vcap/count.csv")
-    >>> catalog.add("hdfs://nameservice1/user/vcap/count.csv")
+    >>> catalog.add("/user/hadoop/count.csv")
+    >>> catalog.add("hdfs://nameservice1/user/hadoop/count.csv")
     
     """
 
