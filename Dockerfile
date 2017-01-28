@@ -21,6 +21,7 @@ RUN pip2.7 install \
     notebook \
     tabulate==0.7.5 \
     snakebite==2.11.0 \
+    ordereddict \
     jupyter-spark \
     futures \
     awscli
