@@ -15,11 +15,11 @@ None.
 
 ## Building the image
 1. Pull all the submodules:  
-    git submodule update --init --recursive  
+    `git submodule update --init --recursive`  
 2. Build the image:  
-    sudo docker build --tag=spark-tk-jupyter  
+    `sudo docker build --tag=spark-tk-jupyter`  
    Or if you are behind a proxy use this:  
-    sudo docker build --build-arg HTTP_PROXY=$http_proxy --build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY=$no_proxy --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy --build-arg no_proxy=$no_proxy --tag=spark-tk-jupyter  
+    `sudo docker build --build-arg HTTP_PROXY=$http_proxy --build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY=$no_proxy --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy --build-arg no_proxy=$no_proxy --tag=spark-tk-jupyter`  
 
 ## Run the image:  
 
