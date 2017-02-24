@@ -1,18 +1,26 @@
-# clear-jupyter
-Jupyter notebook Docker built on top of Clear Linux
-=======
+# spark-tk-jupyter
 
-- The final images contains pandas-cookbook example notebooks from this repository:
+Jupyter notebook docker built on top of Clear Linux.
+
+The final images contains pandas-cookbook example notebooks from this repository:
 https://github.com/jvns/pandas-cookbook
 
+## What's new
+
+This is the initial release of the `spark-tk-jupyter` repo.
+
+## Known issues
+
+None.
+
 ## Building the image
-- Pull all the submodules: git submodule update --init --recursive
-- sudo docker build --tag=spark-tk-jupyter .
-- Or if you are behind a proxy use this:
-- sudo docker build --build-arg HTTP_PROXY=$http_proxy --build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY=$no_proxy --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy --build-arg no_proxy=$no_proxy --tag=spark-tk-jupyter .
+1. Pull all the submodules: `git submodule update --init --recursive`  
+2. Build the image:  `sudo docker build --tag=spark-tk-jupyter`  
+    Or if you are behind a proxy use this:
+   `sudo docker build --build-arg HTTP_PROXY=$http_proxy --build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY=$no_proxy --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy --build-arg no_proxy=$no_proxy --tag=spark-tk-jupyter`  
 
 ## Run the image:
-- sudo docker run -p 8900:8888 YOUR_JUPYTER_IMAGE_TAG
+    `sudo docker run -p 8900:8888 YOUR_JUPYTER_IMAGE_TAG`
 
 ##Features
 
