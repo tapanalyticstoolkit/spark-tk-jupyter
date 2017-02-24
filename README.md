@@ -7,7 +7,7 @@ https://github.com/jvns/pandas-cookbook
 
 ## What's new
 
-This is the initial release of the `spark-tk-jupyter` repo.
+>This is the initial release of the `spark-tk-jupyter` repo.
 
 ## Known issues
 
@@ -19,19 +19,20 @@ None.
     Or if you are behind a proxy use this:
    `sudo docker build --build-arg HTTP_PROXY=$http_proxy --build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY=$no_proxy --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy --build-arg no_proxy=$no_proxy --tag=spark-tk-jupyter`  
 
-## Run the image:
+## Run the image:  
+
     `sudo docker run -p 8900:8888 YOUR_JUPYTER_IMAGE_TAG`
 
 ##Features
 
 - PySpark, Spark Shell
-- Jupyter REST API's for upload and running PySpark/SparkTK scripts
+- Jupyter REST APIs for upload and running PySpark/SparkTK scripts
 - ATK libraries
 - Spark-TK libraries
 - Python and Pip 2.7
-- Examples notebooks from the project jupyter-default-notebooks
+- Examples notebooks from the project `jupyter-default-notebooks`
 
-## REST API's provided
+## REST APIs provided
 
 ### /upload
 - currently the only way to upload files to Jupyter is using the upload Form.
