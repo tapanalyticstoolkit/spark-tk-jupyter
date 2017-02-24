@@ -40,7 +40,7 @@ None.
 - Currently the only way to upload files to Jupyter is using the upload Form.
 - After each attempt to upload, the file(s) are loaded into a directory format like "uploads/dddd" where d is a digit.
 
-`curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" `
+`curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" `  
 `curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" -F "filearg=@/home/ashahba/frame-advanced.py" `
 
 ### /delete
