@@ -1,6 +1,6 @@
 # spark-tk-jupyter
 
-Jupyter notebook docker built on top of Clear Linux.
+Jupyter notebook docker built on top of Clear Linux*.
 
 >The final images contains pandas-cookbook example notebooks from this repo:
 https://github.com/jvns/pandas-cookbook
