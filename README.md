@@ -38,23 +38,23 @@ None.
 
 ### /upload
 - Currently the only way to upload files to Jupyter is using the upload Form.
-    after each attempt to upload, the file(s) are loaded into a directory format like "uploads/dddd" where d is a digit.
+- After each attempt to upload, the file(s) are loaded into a directory format like "uploads/dddd" where d is a digit.
 
-- curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py"
-- curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" -F "filearg=@/home/ashahba/frame-advanced.py"
+`curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" `
+`curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" -F "filearg=@/home/ashahba/frame-advanced.py" `
 
 ### /delete
-- curl http://JUPYTER_NOTEBOOK_URL/delete -d "app-path=uploads/0001"
+`curl http://JUPYTER_NOTEBOOK_URL/delete -d "app-path=uploads/0001" `
 
 ### /rename
-- curl http://JUPYTER_NOTEBOOK_URL/rename -d "app-path=uploads/0001" -d "dst-path=uploads/myapp"
+`curl http://JUPYTER_NOTEBOOK_URL/rename -d "app-path=uploads/0001" -d "dst-path=uploads/myapp" `
 
 ### /spark-submit
-- curl http://JUPYTER_NOTEBOOK_URL/spark-submit -d "driver-path=uploads/0001/frame-basics.py"
+`curl http://JUPYTER_NOTEBOOK_URL/spark-submit -d "driver-path=uploads/0001/frame-basics.py" `
 
 ### /logs
-- curl http://JUPYTER_NOTEBOOK_URL/logs -d "app-path=uploads/0001" -d "offset=1" -d "n=100"
+`curl http://JUPYTER_NOTEBOOK_URL/logs -d "app-path=uploads/0001" -d "offset=1" -d "n=100" `
 
 ### /status
-- curl http://JUPYTER_NOTEBOOK_URL/status -d "app-path=uploads/0001"
+`curl http://JUPYTER_NOTEBOOK_URL/status -d "app-path=uploads/0001" `
 
