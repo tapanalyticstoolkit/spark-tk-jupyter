@@ -2,12 +2,12 @@
 
 Jupyter notebook docker built on top of Clear Linux.
 
-The final images contains pandas-cookbook example notebooks from this repository:
+>The final images contains pandas-cookbook example notebooks from this repository:
 https://github.com/jvns/pandas-cookbook
 
 ## What's new
 
->This is the initial release of the `spark-tk-jupyter` repo.
+This is the initial release of the `spark-tk-jupyter` repo.
 
 ## Known issues
 
@@ -35,8 +35,8 @@ None.
 ## REST APIs provided
 
 ### /upload
-- currently the only way to upload files to Jupyter is using the upload Form.
-    after each attemp to upload the file(s) are loaded into a directory format like "uploads/dddd" where d is a digit.
+- Currently the only way to upload files to Jupyter is using the upload Form.
+    after each attempt to upload, the file(s) are loaded into a directory format like "uploads/dddd" where d is a digit.
 
 - curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py"
 - curl http://JUPYTER_NOTEBOOK_URL/upload -F "filearg=@/home/ashahba/frame-basics.py" -F "filearg=@/home/ashahba/frame-advanced.py"
